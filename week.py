@@ -87,9 +87,9 @@ def mean_score(sentiments):
 
 
 def week_logic(week_score):
-    if week_score > 0.75:
+    if week_score > 0.75 or week_score == 0.75:
         print("You had a positve week")
-    elif week_score > 0.45:
+    elif week_score > 0.45 or week_score == 0.45:
         print("You had a neautral week")
     else:
         print("You had a negative week, I hope it gets better")
