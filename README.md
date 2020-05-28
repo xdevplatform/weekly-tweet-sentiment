@@ -5,7 +5,6 @@ A code sample that aims to answer the question of how positive your week using t
 Created by [@jessicagarson](www.twitter.com/jessicagarson).
 
 ## Support
-
 Create a [new issue](https://github.com/twitterdev/how-positive was-your-week/issues) on GitHub.
 
 ## Contributing
