@@ -71,7 +71,7 @@ def week_logic(week_score):
 
 
 def main():
-    ​url = create_twitter_url()
+    url = create_twitter_url()
     data = process_yaml()
     bearer_token = create_bearer_token(data)
     res_json = twitter_auth_and_connect(bearer_token, url)
