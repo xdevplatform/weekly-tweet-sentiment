@@ -29,6 +29,11 @@ def twitter_auth_and_connect(bearer_token, url):
     return response.json()
 
 
+def no_tweets(res_json):
+    if res_json == {"meta": {"result_count": 0}}:
+        print("The Twitter handle entered hasn't Tweeted in 7 days.")
+
+
 def lang_data_shape(res_json):
     data_only = res_json["data"]
     doc_start = '"documents": {}'.format(data_only)
@@ -57,8 +62,7 @@ def generate_languages(headers, language_api_url, documents):
 
 def combine_lang_data(documents, with_languages):
     langs = pd.DataFrame(with_languages["documents"])
-    lang_iso = [x.get("iso6391Name")
-                for d in langs.detectedLanguages if d for x in d]
+    lang_iso = [x.get("iso6391Name") for d in langs.detectedLanguages if d for x in d]
     data_only = documents["documents"]
     tweet_data = pd.DataFrame(data_only)
     tweet_data.insert(2, "language", lang_iso, True)
@@ -76,8 +80,7 @@ def add_document_format(json_lines):
 
 
 def sentiment_scores(headers, sentiment_url, document_format):
-    response = requests.post(
-        sentiment_url, headers=headers, json=document_format)
+    response = requests.post(sentiment_url, headers=headers, json=document_format)
     return response.json()
 
 
@@ -100,6 +103,7 @@ def main():
     data = process_yaml()
     bearer_token = create_bearer_token(data)
     res_json = twitter_auth_and_connect(bearer_token, url)
+    no_tweets(res_json)
     documents = lang_data_shape(res_json)
     language_api_url, sentiment_url, subscription_key = connect_to_azure(data)
     headers = azure_header(subscription_key)
