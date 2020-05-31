@@ -31,6 +31,11 @@ def twitter_auth_and_connect(bearer_token, url):
     return response.json()
 
 
+def no_tweets(res_json):
+    if res_json == {"meta": {"result_count": 0}}:
+        print("The Twitter handle entered hasn't Tweeted in 7 days.")
+
+
 def connect_to_azure(data):
     azure_url = "https://week.cognitiveservices.azure.com/"
     sentiment_url = "{}text/analytics/v2.1/sentiment".format(azure_url)
@@ -75,6 +80,7 @@ def main():
     data = process_yaml()
     bearer_token = create_bearer_token(data)
     res_json = twitter_auth_and_connect(bearer_token, url)
+    no_tweets(res_json)
     sentiment_url, subscription_key = connect_to_azure(data)
     headers = azure_header(subscription_key)
     document_format = create_document_format(res_json)
