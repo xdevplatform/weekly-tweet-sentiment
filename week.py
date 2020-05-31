@@ -62,7 +62,8 @@ def generate_languages(headers, language_api_url, documents):
 
 def combine_lang_data(documents, with_languages):
     langs = pd.DataFrame(with_languages["documents"])
-    lang_iso = [x.get("iso6391Name") for d in langs.detectedLanguages if d for x in d]
+    lang_iso = [x.get("iso6391Name")
+                for d in langs.detectedLanguages if d for x in d]
     data_only = documents["documents"]
     tweet_data = pd.DataFrame(data_only)
     tweet_data.insert(2, "language", lang_iso, True)
@@ -80,7 +81,8 @@ def add_document_format(json_lines):
 
 
 def sentiment_scores(headers, sentiment_url, document_format):
-    response = requests.post(sentiment_url, headers=headers, json=document_format)
+    response = requests.post(
+        sentiment_url, headers=headers, json=document_format)
     return response.json()
 
 
@@ -118,3 +120,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
