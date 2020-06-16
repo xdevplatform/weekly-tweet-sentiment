@@ -1,4 +1,4 @@
 search_tweets_api:
-  bearer_token: xxxxxxxxxxxxxxxxxxxxxxxx
+  bearer_token: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 azure:
-  subscription_key: xxxxxxxxxxxxxxxxxxxxxxx
+  subscription_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
