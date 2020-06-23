@@ -4,8 +4,10 @@ Tweets combined with a sentiment score can give you a gauge of your Tweets in a 
 
 For this code to run you will need to set up a configuration file with your secrets, a sample of this can be found under `config.yaml`. Be sure to add your `config.yaml` to your `.gitignore` and check out [our guide on securing keys and tokens](https://developer.twitter.com/en/docs/basics/authentication/guides/securing-keys-and-tokens).
 
+For a step by step guide be sure to take a look at the [blog post on the subject](https://blog.twitter.com/developer/en_us/topics/tips/2020/how-to-analyze-the-sentiment-of-your-own-tweets.html).
+
 ## Support
-Create a [new issue](https://github.com/twitterdev/how-positive-was-your-week/issues) on GitHub.
+Create a [new issue](https://github.com/twitterdev/weekly-tweet-sentiment/issues) on GitHub.
 
 ## Contributing
 
